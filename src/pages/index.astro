@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <div class='container-md gap-2'>
+    <div class='grid grid-cols-3 gap-2'>
+      <div class='card'>Hello world</div>
+      <div class='bg-secondary text-secondary-foreground p-4 rounded-md'>
+        Hello world
+      </div>
+      <div class='bg-muted text-muted-foreground p-4 rounded-md'>
+        Hello world
+      </div>
+    </div>
+    <div class='txt-h1'>Hello world</div>
+    <div class='txt-h2'>Hello world</div>
+    <div class='txt-h3'>Hello world</div>
+    <div class='txt-h4'>Hello world</div>
+    <div class='txt-1'>Hello world</div>
+    <div class='txt-2'>Hello world</div>
+    <div class='txt-3'>Hello world</div>
+    <div class='txt-4'>Hello world</div>
+    <div class='txt-link'>Hello world</div>
+    <div class='txt-label'>Hello world</div>
+    <div class='txt-error'>Hello world</div>
+    <div class='txt-info'>Hello world</div>
+  </div>
 </Layout>
