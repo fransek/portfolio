@@ -1,3 +1,8 @@
+---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+---
+
 <!doctype html>
 <html lang='en'>
   <head>
@@ -8,30 +13,27 @@
     <title>Astro Basics</title>
   </head>
   <body class='flex min-h-screen flex-col justify-between antialiased'>
-    <header>Header</header>
+    <Header />
     <main
       class='flex flex-1 flex-col items-center gap-8 px-4 py-8 md:px-10 md:py-20'
     >
       <slot />
     </main>
-    <foooter>Footer</foooter>
+    <Footer />
   </body>
 </html>
 
-<style>
+<style is:global>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-  .noto-sans {
+  html,
+  body {
+    @apply bg-primary text-primary-foreground txt-2;
     font-family: 'Noto Sans', serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: 'wdth' 100;
-  }
-
-  html,
-  body {
-    @apply bg-primary text-primary-foreground noto-sans;
   }
 
   * {
