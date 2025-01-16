@@ -1,6 +1,7 @@
 ---
+import GitHub from '../../components/GitHub.astro'
 import Layout from '../../layouts/Layout.astro'
-import { ghFetch } from '../../lib/utils'
+import { ghFetch, type Repo, type Readme } from '../../lib/utils'
 import { Markdown } from '@astropub/md'
 
 export function getStaticPaths() {
@@ -12,13 +13,23 @@ export function getStaticPaths() {
 
 const { project } = Astro.params
 
-const res = await ghFetch(`repos/${project}/readme`)
-const data = await res.json()
-const content = atob(data.content)
+const data = await ghFetch<Repo>(`repos/${project}`)
+const readme = await ghFetch<Readme>(`repos/${project}/readme`)
+const content = atob(readme.content)
 ---
 
 <Layout title={project}>
-  <div class='container-md typography'>
-    <Markdown of={content} />
+  <div class='container-md card' transition:name={project}>
+    <span class='flex gap-4 items-center'>
+      <h1 class='txt-h4'>{data.name}</h1>
+      <GitHub href={data.html_url} />
+    </span>
+    <p class='txt-3'>
+      {data.description}
+    </p>
+    <hr />
+    <article class='container-md typography'>
+      <Markdown of={content} />
+    </article>
   </div>
 </Layout>

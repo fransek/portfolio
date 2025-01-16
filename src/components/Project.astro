@@ -1,5 +1,5 @@
 ---
-import { ghFetch } from '../lib/utils'
+import { ghFetch, type Repo } from '../lib/utils'
 
 interface Props {
   name: string
@@ -7,12 +7,16 @@ interface Props {
 
 const { name } = Astro.props
 
-const res = await ghFetch(`repos/${name}`)
-const data = await res.json()
-console.log(data)
+const data = await ghFetch<Repo>(`repos/${name}`)
 ---
 
-<a class='card container-full' href={`/projects/${data.full_name}`}>
+<a
+  class='card container-full'
+  href={`/projects/${name}`}
+  transition:name={name}
+>
   <h2 class='txt-1'>{data.name}</h2>
-  <div class='txt-3'>{data.description}</div>
+  <div class='txt-3'>
+    {data.description}
+  </div>
 </a>

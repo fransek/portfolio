@@ -35,14 +35,14 @@ export default {
   },
   plugins: [
     plugin(({ addComponents, theme }) => {
-      const containerFull: CSSRuleObject = {
+      const containerFull = {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: theme('spacing.4'),
-      }
+      } satisfies CSSRuleObject
 
-      const containers: CSSRuleObject = {
+      const containers = {
         '.container-xs': {
           ...containerFull,
           maxWidth: theme('screens.xs'),
@@ -68,9 +68,9 @@ export default {
           maxWidth: theme('screens.2xl'),
         },
         '.container-full': containerFull,
-      }
+      } satisfies CSSRuleObject
 
-      const txt: CSSRuleObject = {
+      const txt = {
         '.txt-h1': {
           fontSize: theme('fontSize.3xl'),
           fontWeight: '700',
@@ -138,9 +138,9 @@ export default {
           lineHeight: '1',
           color: theme('colors.muted.foreground'),
         },
-      }
+      } satisfies CSSRuleObject
 
-      const components: CSSRuleObject = {
+      const components = {
         '.card': {
           backgroundColor: theme('colors.card.DEFAULT'),
           border: `1px solid ${theme('colors.border')}`,
@@ -158,10 +158,12 @@ export default {
           '& small': txt['.txt-4'],
           '& strong': txt['.txt-1'],
           '& ul li': {
+            ...txt['.txt-3'],
             listStyleType: 'disc',
             listStylePosition: 'inside',
           },
           '& ol li': {
+            ...txt['.txt-3'],
             listStyleType: 'decimal',
             listStylePosition: 'inside',
           },
@@ -170,7 +172,7 @@ export default {
             borderRadius: theme('borderRadius.md'),
           },
         },
-      }
+      } satisfies CSSRuleObject
 
       addComponents({
         ...containers,
