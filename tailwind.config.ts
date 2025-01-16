@@ -9,19 +9,19 @@ export default {
     colors: {
       primary: {
         DEFAULT: colors.stone[950],
-        foreground: colors.stone[50],
+        foreground: colors.stone[100],
       },
       secondary: {
         DEFAULT: '#1c2a4b',
-        foreground: colors.stone[50],
+        foreground: colors.stone[100],
       },
       card: {
         DEFAULT: '#0d0d0d',
-        foreground: colors.stone[50],
+        foreground: colors.stone[100],
       },
       muted: {
         DEFAULT: colors.stone[900],
-        foreground: colors.stone[400],
+        foreground: colors.stone[300],
       },
       border: colors.stone[900],
       error: colors.red[500],
@@ -42,13 +42,7 @@ export default {
         gap: theme('spacing.4'),
       }
 
-      addComponents({
-        '.card': {
-          backgroundColor: theme('colors.card.DEFAULT'),
-          border: `1px solid ${theme('colors.border')}`,
-          borderRadius: theme('borderRadius.lg'),
-          padding: theme('spacing.4'),
-        },
+      const containers: CSSRuleObject = {
         '.container-xs': {
           ...containerFull,
           maxWidth: theme('screens.xs'),
@@ -74,6 +68,9 @@ export default {
           maxWidth: theme('screens.2xl'),
         },
         '.container-full': containerFull,
+      }
+
+      const txt: CSSRuleObject = {
         '.txt-h1': {
           fontSize: theme('fontSize.3xl'),
           fontWeight: '700',
@@ -140,6 +137,32 @@ export default {
           lineHeight: '1',
           color: theme('colors.muted.foreground'),
         },
+      }
+
+      const components: CSSRuleObject = {
+        '.card': {
+          backgroundColor: theme('colors.card.DEFAULT'),
+          border: `1px solid ${theme('colors.border')}`,
+          borderRadius: theme('borderRadius.lg'),
+          padding: theme('spacing.4'),
+        },
+        '.typography': {
+          '& h1': txt['.txt-h1'],
+          '& h2': txt['.txt-h2'],
+          '& h3': txt['.txt-h3'],
+          '& h4': txt['.txt-h4'],
+          '& p': txt['.txt-3'],
+          '& a': txt['.txt-link'],
+          '& label': txt['.txt-label'],
+          '& small': txt['.txt-4'],
+          '& strong': txt['.txt-1'],
+        },
+      }
+
+      addComponents({
+        ...containers,
+        ...txt,
+        ...components,
       })
     }),
   ],
