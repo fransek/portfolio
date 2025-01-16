@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { ghFetch } from '../../lib/utils'
+import { Markdown } from '@astropub/md'
+
+export function getStaticPaths() {
+  return [
+    { params: { project: 'fransek/statekit' } },
+    { params: { project: 'fransek/next-i18n' } },
+  ]
+}
+
+const { project } = Astro.params
+
+const res = await ghFetch(`repos/${project}/readme`)
+const data = await res.json()
+const content = atob(data.content)
+---
+
+<Layout title={project}>
+  <div class='container-md typography'>
+    <Markdown of={content} />
+  </div>
+</Layout>

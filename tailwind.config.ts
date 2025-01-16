@@ -119,6 +119,7 @@ export default {
           '&:hover': {
             textDecorationLine: 'underline',
           },
+          display: 'inline-block',
         },
         '.txt-label': {
           fontSize: theme('fontSize.sm'),
@@ -156,6 +157,18 @@ export default {
           '& label': txt['.txt-label'],
           '& small': txt['.txt-4'],
           '& strong': txt['.txt-1'],
+          '& ul li': {
+            listStyleType: 'disc',
+            listStylePosition: 'inside',
+          },
+          '& ol li': {
+            listStyleType: 'decimal',
+            listStylePosition: 'inside',
+          },
+          '& pre': {
+            padding: theme('spacing.3'),
+            borderRadius: theme('borderRadius.md'),
+          },
         },
       }
 
