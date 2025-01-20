@@ -1,7 +1,8 @@
-import plugin from 'tailwindcss/plugin'
-import type { CSSRuleObject } from 'tailwindcss/types/config'
 import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
+import plugin from 'tailwindcss/plugin'
+import type { CSSRuleObject } from 'tailwindcss/types/config'
+import tailwindCSSAnimated from 'tailwindcss-animated'
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -34,6 +35,7 @@ export default {
     },
   },
   plugins: [
+    tailwindCSSAnimated,
     plugin(({ addComponents, theme }) => {
       const containerFull = {
         width: '100%',
