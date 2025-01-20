@@ -21,13 +21,16 @@ const content = atob(readme.content)
 ---
 
 <Layout title={project}>
-  <div class='container-md'>
-    <div class='flex gap-4 txt-4'>
+  <div class='container-md w-screen xs:w-full'>
+    <div class='flex gap-4 txt-4 px-4 xs:px-0'>
       <a href='/'>Projects</a>
       <span>/</span>
       <span>{data.name}</span>
     </div>
-    <div class='container-full card' transition:name={project}>
+    <div
+      class='container-full card rounded-none xs:rounded-lg'
+      transition:name={project}
+    >
       <span class='flex gap-4 items-center'>
         <h1 class='txt-h4'>{data.name}</h1>
         <GitHub href={data.html_url} className='fill-primary-foreground' />
