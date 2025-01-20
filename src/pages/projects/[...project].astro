@@ -1,5 +1,5 @@
 ---
-import GitHub from '@/components/GitHub.astro'
+import GitHub from '@/components/icons/GitHub.astro'
 import Layout from '@/layouts/Layout.astro'
 import { projects } from '@/lib/constants'
 import { ghFetch, type Repo, type Readme } from '@/lib/utils'
@@ -21,17 +21,24 @@ const content = atob(readme.content)
 ---
 
 <Layout title={project}>
-  <div class='container-md card' transition:name={project}>
-    <span class='flex gap-4 items-center'>
-      <h1 class='txt-h4'>{data.name}</h1>
-      <GitHub href={data.html_url} className='fill-primary-foreground' />
-    </span>
-    <p class='txt-3'>
-      {data.description}
-    </p>
-    <hr />
-    <article class='container-md typography'>
-      <Markdown of={content} />
-    </article>
+  <div class='container-md'>
+    <div class='flex gap-4 txt-4'>
+      <a href='/'>Projects</a>
+      <span>/</span>
+      <span>{data.name}</span>
+    </div>
+    <div class='container-full card' transition:name={project}>
+      <span class='flex gap-4 items-center'>
+        <h1 class='txt-h4'>{data.name}</h1>
+        <GitHub href={data.html_url} className='fill-primary-foreground' />
+      </span>
+      <p class='txt-3'>
+        {data.description}
+      </p>
+      <hr />
+      <article class='container-md typography'>
+        <Markdown of={content} />
+      </article>
+    </div>
   </div>
 </Layout>
