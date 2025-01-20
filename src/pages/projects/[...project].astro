@@ -24,7 +24,7 @@ const content = atob(readme.content)
   <div class='container-md card' transition:name={project}>
     <span class='flex gap-4 items-center'>
       <h1 class='txt-h4'>{data.name}</h1>
-      <GitHub href={data.html_url} />
+      <GitHub href={data.html_url} className='fill-primary-foreground' />
     </span>
     <p class='txt-3'>
       {data.description}
