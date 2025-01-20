@@ -1,20 +1,22 @@
 ---
-import GitHub from '../../components/GitHub.astro'
-import Layout from '../../layouts/Layout.astro'
-import { ghFetch, type Repo, type Readme } from '../../lib/utils'
+import GitHub from '@/components/GitHub.astro'
+import Layout from '@/layouts/Layout.astro'
+import { projects } from '@/lib/constants'
+import { ghFetch, type Repo, type Readme } from '@/lib/utils'
 import { Markdown } from '@astropub/md'
 
+export const prerender = true
+
 export function getStaticPaths() {
-  return [
-    { params: { project: 'fransek/statekit' } },
-    { params: { project: 'fransek/next-i18n' } },
-  ]
+  return projects.map((project) => ({ params: { project } }))
 }
 
 const { project } = Astro.params
 
-const data = await ghFetch<Repo>(`repos/${project}`)
-const readme = await ghFetch<Readme>(`repos/${project}/readme`)
+const [data, readme] = await Promise.all([
+  ghFetch<Repo>(`repos/${project}`),
+  ghFetch<Readme>(`repos/${project}/readme`),
+])
 const content = atob(readme.content)
 ---
 
