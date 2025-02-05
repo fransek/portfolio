@@ -1,4 +1,5 @@
 ---
+import { routes } from '@/lib/constants'
 import { ghFetch, type Repo } from '../lib/utils'
 
 interface Props {
@@ -12,7 +13,7 @@ const data = await ghFetch<Repo>(`repos/${name}`)
 
 <a
   class='card container-full'
-  href={`/projects/${name}`}
+  href={routes.project(name)}
   transition:name={name}
 >
   <h2 class='txt-1'>{data.name}</h2>

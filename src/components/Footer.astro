@@ -1,4 +1,5 @@
 ---
+import { routes } from '@/lib/constants'
 import Email from './icons/Email.astro'
 import GitHub from './icons/GitHub.astro'
 import LinkedIn from './icons/LinkedIn.astro'
@@ -8,8 +9,8 @@ import LinkedIn from './icons/LinkedIn.astro'
   class='p-4 border-t bg-card txt-4 grid grid-cols-2 sm:grid-cols-3 gap-4'
 >
   <nav class='flex sm:justify-start gap-4'>
-    <a href='/'>Projects</a>
-    <a href='/about'>About me</a>
+    <a href={routes.home}>About me</a>
+    <a href={routes.projects}>Projects</a>
   </nav>
   <div class='flex justify-end sm:justify-center gap-6'>
     <GitHub href='https://github.com/fransek' size={20} />

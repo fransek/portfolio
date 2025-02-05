@@ -1,16 +1,25 @@
 ---
-import Project from '@/components/Project.astro'
 import Layout from '@/layouts/Layout.astro'
-import { projects } from '@/lib/constants'
+import { Image } from 'astro:assets'
+import me from '@/assets/me.png'
 ---
 
-<Layout title='Frans Ekman'>
-  <div class='container-md'>
-    <h2 class='txt-h2'>Projects</h2>
+<Layout title='About me'>
+  <div class='container-sm'>
     <div
-      class='container-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'
+      class='w-32 h-32 rounded-full overflow-hidden bg-muted m-auto animate-fade'
     >
-      {projects.map((project) => <Project name={project} />)}
+      <Image src={me} alt='A picture of me' class='h-full' />
     </div>
+    <p class='txt-1 animate-fade-up animate-delay-[250ms]'>Hello there.</p>
+    <p class='txt-3 animate-fade-up animate-delay-[500ms]'>
+      My name is Frans Ekman, and I'm a web developer based in Stockholm,
+      Sweden. I currently work at Handelsbanken where I specialize in front-end
+      development. In my free time, I love working on my own passion projects
+      that let me explore new ideas. I studied interaction design at Stockholm
+      University but eventually found my way into programming and web
+      development. Besides coding, I enjoy video games, music, tennis, and
+      learning new things.
+    </p>
   </div>
 </Layout>
