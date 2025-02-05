@@ -1,10 +1,33 @@
 ---
 import { routes } from '@/lib/constants'
+import { cn } from '@/lib/utils'
+
+const activePath = Astro.url.pathname.split('/')[1]
 ---
 
 <header class='p-4 border-b bg-card flex items-center gap-6'>
   <nav class='flex items-center gap-6'>
-    <a class='txt-1' href={routes.home}>Frans Ekman</a>
-    <a class='txt-3' href={routes.projects}>Projects</a>
+    <a class='txt-1 leading-6 h-max' href={routes.home}>
+      <span>Frans Ekman</span>
+      {
+        activePath === routes.home.replace('/', '') && (
+          <hr
+            class='border-primary-foreground'
+            transition:name='active-path-hr'
+          />
+        )
+      }
+    </a>
+    <a class='txt-3 leading-6 h-max' href={routes.projects}>
+      <span>Projects</span>
+      {
+        activePath === routes.projects.replace('/', '') && (
+          <hr
+            class='border-primary-foreground'
+            transition:name='active-path-hr'
+          />
+        )
+      }
+    </a>
   </nav>
 </header>
