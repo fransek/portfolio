@@ -20,7 +20,7 @@ const [data, readme] = await Promise.all([
 const content = Buffer.from(readme.content, 'base64').toString()
 ---
 
-<Layout title={project}>
+<Layout title={`Frans Ekman - ${data.name}`}>
   <div class='container-md w-screen xs:w-full'>
     <div class='flex gap-4 txt-4 px-4 xs:px-0'>
       <a href={routes.projects}>Projects</a>
