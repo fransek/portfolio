@@ -2,12 +2,16 @@
 import Layout from '@/layouts/Layout.astro'
 import { Image } from 'astro:assets'
 import me from '@/assets/me.png'
+import GitHub from '@/components/icons/GitHub.astro'
+import LinkedIn from '@/components/icons/LinkedIn.astro'
+import Email from '@/components/icons/Email.astro'
+import { routes } from '@/lib/constants'
 ---
 
 <Layout title='Frans Ekman'>
   <div class='container-sm'>
     <div
-      class='w-32 h-32 rounded-full overflow-hidden bg-muted m-auto animate-fade'
+      class='w-32 h-32 rounded-full overflow-hidden bg-muted m-auto animate-fade-up'
     >
       <Image src={me} alt='A picture of me' class='h-full' />
     </div>
@@ -21,5 +25,10 @@ import me from '@/assets/me.png'
       development. Besides coding, I enjoy video games, music, tennis, and
       learning new things.
     </p>
+    <div class='flex gap-6 animate-fade-up animate-delay-[750ms]'>
+      <GitHub href='https://github.com/fransek' size={24} />
+      <LinkedIn href='https://www.linkedin.com/in/frans-ekman/' size={24} />
+      <Email href='mailto:fransedvinekman@gmail.com' size={24} />
+    </div>
   </div>
 </Layout>
