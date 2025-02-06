@@ -1,32 +1,31 @@
 import type { Config } from 'tailwindcss'
-import colors from 'tailwindcss/colors'
+import tailwindCSSAnimated from 'tailwindcss-animated'
 import plugin from 'tailwindcss/plugin'
 import type { CSSRuleObject } from 'tailwindcss/types/config'
-import tailwindCSSAnimated from 'tailwindcss-animated'
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     colors: {
       primary: {
-        DEFAULT: colors.stone[950],
-        foreground: colors.stone[100],
+        DEFAULT: 'hsl(240, 16%, 5%)',
+        foreground: 'hsl(60, 5%, 96%)',
       },
       secondary: {
-        DEFAULT: '#1c2a4b',
-        foreground: colors.stone[100],
+        DEFAULT: 'hsl(222, 46%, 20%)',
+        foreground: 'hsl(60, 5%, 96%)',
       },
       card: {
-        DEFAULT: '#0d0d0d',
-        foreground: colors.stone[100],
+        DEFAULT: 'hsl(240, 16%, 6%)',
+        foreground: 'hsl(60, 5%, 96%)',
       },
       muted: {
-        DEFAULT: colors.stone[900],
-        foreground: colors.stone[300],
+        DEFAULT: 'hsl(24, 10%, 10%)',
+        foreground: 'hsl(24, 6%, 83%)',
       },
-      border: colors.stone[900],
-      error: colors.red[500],
-      link: colors.blue[500],
+      border: 'hsl(24, 10%, 10%)',
+      error: 'hsl(0, 84%, 60%)',
+      link: 'hsl(217, 91%, 60%)',
     },
     extend: {
       screens: {
