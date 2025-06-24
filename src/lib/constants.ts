@@ -1,4 +1,8 @@
-export const projects = ['fransek/statekit', 'fransek/next-i18n'] as const
+export const projects = [
+  'fransek/statekit',
+  'fransek/next-i18n',
+  'fransek/evercatch',
+] as const
 
 export const routes = {
   home: '/',
