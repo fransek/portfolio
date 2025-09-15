@@ -1,5 +1,5 @@
 export const projects = [
-  'fransek/statekit',
+  'fransek/dharma',
   'fransek/next-i18n',
   'fransek/evercatch',
 ] as const
