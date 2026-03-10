@@ -4,6 +4,7 @@ export const projects = [
   'fransek/evercatch',
   'fransek/form',
   'fransek/react-input-formatting',
+  'fransek/ui'
 ] as const
 
 export const routes = {
